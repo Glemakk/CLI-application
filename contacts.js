@@ -8,7 +8,6 @@ function listContacts() {
   fs.readFile(contactsPath, 'utf-8', (error, data) => {
     if (error) {
       throw new Error('Cannot read file')
-      //   return console.log(error)
     }
     const contacts = JSON.parse(data)
     console.table(contacts)
@@ -19,7 +18,6 @@ function getContactById(contactId) {
   fs.readFile(contactsPath, 'utf-8', (error, data) => {
     if (error) {
       throw new Error('Cannot read file')
-      //   return console.log(error)
     }
 
     const contacts = JSON.parse(data)
@@ -35,7 +33,6 @@ function removeContact(contactId) {
   fs.readFile(contactsPath, 'utf-8', (error, data) => {
     if (error) {
       throw new Error('Cannot read file')
-      //   return console.log(error)
     }
     const contacts = JSON.parse(data)
     const contact = contacts.findIndex((person) => person.id === contactId)
@@ -53,7 +50,6 @@ function addContact(name, email, phone) {
   fs.readFile(contactsPath, 'utf-8', (error, data) => {
     if (error) {
       throw new Error('Cannot read file')
-      //   return console.log(error)
     }
     const contacts = JSON.parse(data)
     const newContact = { id: v4(), name, email, phone }
@@ -72,18 +68,3 @@ module.exports = {
   removeContact,
   addContact,
 }
-
-// =====================
-// fs.readFile(contactsPath, 'utf-8', (error, data) => {
-//   if (error) {
-//     throw new Error('Cannot read file')
-//   }
-
-//   // вместо переменной ниже params можно указать 2-м параметром utf-8
-//   // для раскодировки файла с 16 - ричной системы кодировки
-//   //
-//   //   const params = data.toString()
-//   //   console.log(params)
-//   console.log(error)
-//   console.log(data)
-// })
